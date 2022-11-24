@@ -28,12 +28,12 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: ${{ FINAL_FILE_NAME }}
+          path: ${{ env.FINAL_FILE_NAME }}
       - name: Create Release on new tag
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/v')
         with:
           files: |
-            ${{ FINAL_FILE_NAME }}
+            ${{ env.FINAL_FILE_NAME }}
 
 
